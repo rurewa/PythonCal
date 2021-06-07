@@ -18,15 +18,14 @@ else:
     print("Это не число!")
     exit(0) # Завершение программы
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-print("Введите оператор: +, -, *, /")
-operator = str(input())
+operator = str(input("Введите оператор: +, -, *, /"))
 # Проверка правильности ввода математического оператора
 if operator == '+' or operator == '-' or operator == '*' or operator == '/':
     print("Вы ввели:", operator)
 else:
     print("Вы ввели неправильный оператор!")
     exit(0)
-
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 second_num = input("Введите второе число: ")
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Проверка корректности второго ввода числа
@@ -45,16 +44,13 @@ else:
 # Вычисляем результат
 if operator == '+':
     result = first_num + second_num
-    print("Результат сложения", result)
 elif operator == '-':
     result = first_num - second_num
-    print("Результат вычитания: ", result)
 elif operator == '*':
     result = first_num * second_num
-    print("Результат произведени: ", result)
 else:
     if second_num == 0:
         print("На ноль делить нельзя!")
     else:    
         result = first_num / second_num
-        print("Результат деления: ", result)
+print("Результат вычисления", result)
