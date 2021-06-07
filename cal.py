@@ -1,22 +1,26 @@
 # Мой первый калькулятор на Python v1.3
 # Осуществлена проверка корректности ввода знака оператора
 print("Здравуствуйте! Это калькулятор.")
-print("Введите по очереди: первое число, оператоб, второе число, по очереди, нажимая Enter")
+print("Введите по очереди: первое число, оператоб, второе число, по очереди, нажимая Enter")         
+
+def err(num):
+    # Проверка корректности ввода первого числа
+    is_num = True 
+    try:
+        float(num)
+    except ValueError:
+        is_num = False
+    if is_num == True:
+        num = float(num)
+        print("Вы ввели: ", num)
+    else:
+        print("Это не число!")
+        exit(0) # Завершение программы
 
 first_num = input("Введите первое число: ")
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Проверка корректности ввода первого числа
-is_num = True 
-try:
-    float(first_num)
-except ValueError:
-    is_num = False
-if is_num == True:
-    first_num = float(first_num)
-    print("Вы ввели: ", first_num)
-else:
-    print("Это не число!")
-    exit(0) # Завершение программы
+err(first_num)
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 operator = str(input("Введите оператор: +, -, *, /"))
 # Проверка правильности ввода математического оператора
@@ -29,17 +33,7 @@ else:
 second_num = input("Введите второе число: ")
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Проверка корректности второго ввода числа
-is_num = True 
-try:
-    float(second_num)
-except ValueError:
-    is_num = False
-if is_num == True:
-    second_num = float(second_num)
-    print("Вы ввели: ", second_num)
-else:
-    print("Это не число!")
-    exit(0)
+err(second_num)
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Вычисляем результат
 if operator == '+':
@@ -54,3 +48,4 @@ else:
     else:    
         result = first_num / second_num
 print("Результат вычисления", result)
+
