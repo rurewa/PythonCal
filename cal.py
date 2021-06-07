@@ -1,10 +1,9 @@
-# Мой первый калькулятор на Python v1.3
+# Мой первый калькулятор на Python v1.4
 # Осуществлена проверка корректности ввода знака оператора
 print("Здравуствуйте! Это калькулятор.")
-print("Введите по очереди: первое число, оператоб, второе число, по очереди, нажимая Enter")         
+print("Введите по очереди: первое число, оператор, второе число, нажимая Enter")         
 
-def err(num):
-    # Проверка корректности ввода первого числа
+def err(num): # Функция проверки корректности ввода числа
     is_num = True 
     try:
         float(num)
@@ -15,7 +14,8 @@ def err(num):
         print("Вы ввели: ", num)
     else:
         print("Это не число!")
-        exit(0) # Завершение программы
+        exit(0) # Завершение программы   
+
 
 first_num = input("Введите первое число: ")
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -37,15 +37,16 @@ err(second_num)
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Вычисляем результат
 if operator == '+':
-    result = first_num + second_num
+    result = float(first_num) + float(second_num)
 elif operator == '-':
-    result = first_num - second_num
+    result = float(first_num) - float(second_num)
 elif operator == '*':
-    result = first_num * second_num
+    result = float(first_num) * float(second_num)
 else:
-    if second_num == 0:
-        print("На ноль делить нельзя!")
-    else:    
-        result = first_num / second_num
+    try: # Обработка ошибки деления на 0
+        result = float(first_num) / float(second_num) 
+    except ZeroDivisionError:
+        print("На 0 делить нелья!")
+        exit(0) # Завершение программы   
+        
 print("Результат вычисления", result)
-
